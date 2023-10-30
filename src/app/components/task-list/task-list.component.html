@@ -13,7 +13,7 @@
     </button>
     <div class="dropdown-menu">
       <a role="button" class="dropdown-item" (click)="selectCategory('All')">All</a>
-      <a role="button" class="dropdown-item" *ngFor="let task of tasks"
+      <a role="button" class="dropdown-item" *ngFor="let task of filteredTasks"
          (click)="selectCategory(task?.category ||'All')">{{ task?.category }}</a>
     </div>
   </div>
@@ -26,7 +26,7 @@
             <h2>{{task?.name}}</h2>
             <p>{{task?.description}}</p>
             <span class="badge badge-pill badge-primary">{{task?.category}}</span>
-            <span class="badge badge-pill badge-success ml-2" *ngIf="task.completed">Completed</span>
+            <span class="badge badge-pill badge-success ml-2" *ngIf="task?.completed">Completed</span>
           </div>
           <div class="col-sm-12 col-lg-4  d-flex justify-content-around pb-5 pt-5">
             <!-- Botones para marcar como completada o no completada -->

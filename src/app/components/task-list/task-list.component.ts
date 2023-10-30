@@ -56,6 +56,7 @@ export class TaskListComponent implements OnInit {
           // Agrega la nueva tarea a la lista de tareas actual
           const taskCopy = {...this.newTask};
           this.tasks.push(taskCopy);
+          this.filteredTasks = [...this.tasks]
         },
         (error) => {
           alert("Ocurrió un error al enviar la tarea");
@@ -65,11 +66,12 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(task: Task | undefined): void {
+    alert("www")
     if (task && task.id) {
       // Verificas que el registro y su ID no sean undefined
       this.taskService.deleteTask(task.id).subscribe(
         () => {
-          this.tasks = this.tasks.filter((t) => t.id !== task.id);
+          this.filteredTasks = this.tasks.filter((t) => t.id !== task.id);
           this.cleanTask(task)
         },
         (error) => {
