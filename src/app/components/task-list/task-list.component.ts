@@ -66,7 +66,6 @@ export class TaskListComponent implements OnInit {
   }
 
   deleteTask(task: Task | undefined): void {
-    alert("www")
     if (task && task.id) {
       // Verificas que el registro y su ID no sean undefined
       this.taskService.deleteTask(task.id).subscribe(
